@@ -22,8 +22,8 @@ REPO_ROOT=$SCRIPT_DIR/../..
 
 log() { echo "$1" >&2; }
 
-TAG="${TAG:?TAG env variable must be specified}"
-REPO_PREFIX="${REPO_PREFIX:?REPO_PREFIX env variable must be specified}"
+TAG="${TAG:avl_demo}"
+REPO_PREFIX="${REPO_PREFIX:~/k8s-demo/microservices-demo/}"
 
 while IFS= read -d $'\0' -r dir; do
     # build image

@@ -303,11 +303,11 @@ spec:
           #   value: "Replace this with a message you want to display on all pages."
           resources:
             requests:
-              cpu: 100m
-              memory: 64Mi
-            limits:
               cpu: 200m
               memory: 128Mi
+            limits:
+              cpu: 400m
+              memory: 256Mi
 ---
 apiVersion: v1
 kind: Service
@@ -444,11 +444,11 @@ spec:
             port: 3550
         resources:
           requests:
-            cpu: 100m
-            memory: 64Mi
-          limits:
             cpu: 200m
             memory: 128Mi
+          limits:
+            cpu: 400m
+            memory: 256Mi
 ---
 apiVersion: v1
 kind: Service
@@ -584,7 +584,7 @@ spec:
               - ALL
           privileged: false
           readOnlyRootFilesystem: true
-        image: gcr.io/google-samples/microservices-demo/loadgenerator:v0.8.0
+        image: docker.io/library/man_loadgen:v0.0.1
         env:
         - name: FRONTEND_ADDR
           value: "frontend:80"
@@ -592,10 +592,10 @@ spec:
           value: "10"
         resources:
           requests:
-            cpu: 300m
+            cpu: 400m
             memory: 256Mi
           limits:
-            cpu: 500m
+            cpu: 800m
             memory: 512Mi
 ---
 apiVersion: apps/v1
@@ -644,11 +644,11 @@ spec:
             port: 7000
         resources:
           requests:
-            cpu: 100m
-            memory: 64Mi
-          limits:
             cpu: 200m
             memory: 128Mi
+          limits:
+            cpu: 400m
+            memory: 256Mi
 ---
 apiVersion: v1
 kind: Service
